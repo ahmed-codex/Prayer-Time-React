@@ -138,7 +138,7 @@ const Main = () => {
               <h2 className="font-bold tracking-wide text-lg md:text-xl mb-3 mr-1">
                 الهجرى
               </h2>
-              <h2 className="text-md md:text-lg tracking-wide bg-[#e2ac93]/75 px-3 md:px-4 py-2 rounded-lg inline-block">
+              <h2 className="text-lg md:text-lg tracking-wide bg-[#e2ac93]/75 px-3 md:px-4 py-2 rounded-lg inline-block">
                 {hijri?.hijri?.day}-{hijri?.hijri?.month?.ar}-
                 {hijri?.hijri?.year}
               </h2>
