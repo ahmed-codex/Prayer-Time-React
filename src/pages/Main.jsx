@@ -31,7 +31,7 @@ const egyptGovernorates = [
   { name: "الشرقية", city: "Zagazig" },
   { name: "جنوب سيناء", city: "El Tor" },
   { name: "كفر الشيخ", city: "Kafr El Sheikh" },
-  { name: "مطروح", city: "Marsa Matrouh" },
+  { name: "مطروح", city: "Marsa Matruh" },
   { name: "الأقصر", city: "Luxor" },
   { name: "قنا", city: "Qena" },
   { name: "سوهاج", city: "Sohag" },
