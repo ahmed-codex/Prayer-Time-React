@@ -49,6 +49,7 @@ const prayerMap = {
 const Main = () => {
   const [cities, setCity] = useState(egyptGovernorates[0]);
   const [date, setDate] = useState("");
+  const [hijri, setHijri] = useState("");
   const [prayerTime, setPrayerTime] = useState({});
 
   const formatTime = (time) => {
@@ -76,6 +77,7 @@ const Main = () => {
         const data = await res.json();
         setPrayerTime(data.data.timings);
         setDate(data.data.date.gregorian.date);
+        setHijri(data.data.date)
       } catch (error) {
         console.error("fetch Error");
       }
@@ -85,18 +87,18 @@ const Main = () => {
 
   return (
     <div className="bg-[url('/cairo.jpg')] bg-cover bg-center min-h-screen w-full flex items-center justify-center md:justify-start p-4">
-      <div className="w-full max-w-md md:max-w-lg lg:max-w-xl backdrop-blur-sm bg-black/20 text-white rounded-xl border border-white/20 p-4 md:p-6 md:mr-10">
+      <div className="w-full max-w-md md:max-w-xl lg:max-w-xl backdrop-blur-sm bg-black/20 text-white rounded-xl border border-white/20 p-4 md:p-6 md:mr-10">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-around border-b border-gray-300 mb-4 pb-4 gap-4">
           {/* المدينة */}
           <div className="w-full md:w-auto">
-            <h2 className="font-bold tracking-wide text-lg md:text-xl mb-2">
+            <h2 className="font-bold tracking-wide text-lg md:text-xl mb-3 mr-1">
               المدينة
             </h2>
 
             <div className="relative bg-[#e2ac93]/75 rounded-lg w-full md:w-45">
               <Listbox value={cities} onChange={setCity}>
-                <ListboxButton className="relative flex items-center w-full cursor-pointer bg-white/5 py-2 pr-8 pl-3 text-sm md:text-md rounded-lg outline-none focus:outline-none">
+                <ListboxButton className="relative flex items-center w-full cursor-pointer bg-white/5 py-2 pr-8 pl-3 text-lg md:text-xl rounded-lg outline-none focus:outline-none">
                   <IoChevronDown className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 fill-white/60" />
                   {cities.name}
                 </ListboxButton>
@@ -121,13 +123,25 @@ const Main = () => {
           </div>
 
           {/* التاريخ */}
-          <div className="w-full md:w-auto text-center md:text-right">
-            <h2 className="font-bold tracking-wide text-lg md:text-xl mb-2">
-              التاريخ
-            </h2>
-            <h2 className="text-sm md:text-lg tracking-wide bg-[#e2ac93]/75 px-4 py-2 rounded-lg inline-block">
-              {date}
-            </h2>
+          <div className="flex items-center gap-3 md:gap-4"> 
+            {/* التاريخ الميلادي */}
+            <div className="w-full md:w-auto text-right">
+              <h2 className="font-bold tracking-wide text-lg md:text-xl mb-3 mr-1">
+                  الميلادى
+              </h2>
+              <h2 className="text-md md:text-lg tracking-wide bg-[#e2ac93]/75 px-3 md:px-4 py-2 rounded-lg inline-block">
+                {date}
+              </h2>
+            </div>
+             {/* التاريخ الهجري */}
+            <div className="w-full md:w-auto text-right">
+              <h2 className="font-bold tracking-wide text-lg md:text-xl mb-3 mr-1">
+                  الهجرى
+              </h2>
+              <h2 className="text-md md:text-lg tracking-wide bg-[#e2ac93]/75 px-3 md:px-4 py-2 rounded-lg inline-block">
+                {hijri?.hijri?.day}-{hijri?.hijri?.month?.ar}-{hijri?.hijri?.year}
+              </h2>
+            </div>
           </div>
         </div>
 
