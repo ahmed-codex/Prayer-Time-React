@@ -90,10 +90,10 @@ const Main = () => {
       <div className="w-full max-w-md md:max-w-xl lg:max-w-xl backdrop-blur-sm bg-black/20 text-white rounded-xl border border-white/20 p-4 md:p-6 md:mr-10">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-around border-b border-gray-300 mb-4 pb-4 gap-4">
-          {/* المدينة */}
+          {/* المحافظة */}
           <div className="w-full md:w-auto">
             <h2 className="font-bold tracking-wide text-lg md:text-xl mb-3 mr-1">
-              المدينة
+              المحافظة
             </h2>
 
             <div className="relative bg-[#e2ac93]/75 rounded-lg w-full md:w-45">
